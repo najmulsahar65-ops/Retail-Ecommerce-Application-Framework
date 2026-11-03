@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="3" parallel="tests" name="Failed suite [DMVTEK-Retail Application Test Regression Suite]" verbose="2">
+  <listeners>
+    <listener class-name="com.aventstack.chaintest.plugins.ChainTestListener"/>
+  </listeners>
+  <test thread-count="3" parallel="tests" name="Product Results Page Test(failed)" verbose="2">
+    <classes>
+      <class name="com.qa.retail.tests.ProductResultPageTest">
+        <methods>
+          <include name="productInfoSetup"/>
+          <include name="productImagesTest" invocation-numbers="0"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.qa.retail.tests.ProductResultPageTest -->
+    </classes>
+  </test> <!-- Product Results Page Test(failed) -->
+  <test thread-count="3" parallel="tests" name="Login Page Test(failed)" verbose="2">
+    <classes>
+      <class name="com.qa.retail.tests.LoginPageTest">
+        <methods>
+          <include name="loginPageTitleTest"/>
+          <include name="loginPageUrlTest"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.qa.retail.tests.LoginPageTest -->
+    </classes>
+  </test> <!-- Login Page Test(failed) -->
+</suite> <!-- Failed suite [DMVTEK-Retail Application Test Regression Suite] -->

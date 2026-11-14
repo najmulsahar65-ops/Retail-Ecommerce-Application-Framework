@@ -3,14 +3,21 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.qa.retail.tests.RegisterPageTest">
+      <class name="com.qa.retail.tests.LoginPageTest">
         <methods>
+          <include name="loginPageTitleTest"/>
+          <include name="forgottenPasswordTest"/>
+          <include name="loginPageUrlTest"/>
+          <include name="IsNewCustomerTextVisible"/>
+          <include name="doLoginTest"/>
+          <include name="IsLogoDisplayedTest"/>
+          <include name="isAddToCartExist"/>
           <include name="tearDown"/>
-          <include name="userRegTest" invocation-numbers="0 1 2 3 4 5 6"/>
           <include name="setup"/>
-          <include name="regSetup"/>
+          <include name="attachScreenshot"/>
+          <include name="IsFooterLinksExist"/>
         </methods>
-      </class> <!-- com.qa.retail.tests.RegisterPageTest -->
+      </class> <!-- com.qa.retail.tests.LoginPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

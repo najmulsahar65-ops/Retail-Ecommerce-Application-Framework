@@ -17,6 +17,7 @@ public class DriverFactory {
 	WebDriver driver;
 	Properties prop;
 	OptionsManager optionsManager;
+	public static ThreadLocal <WebDriver> tlDriver = new ThreadLocal<WebDriver>();
 
 	public WebDriver initDriver(Properties prop) {
 
@@ -45,8 +46,13 @@ public class DriverFactory {
 		}
 
 		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
 		driver.get(prop.getProperty("url"));
 		return driver;
+	}
+	
+	public static WebDriver getDriver() {
+		return tlDriver.get();
 	}
 
 	public Properties initProp() {
@@ -107,6 +113,8 @@ public class DriverFactory {
 		return prop;
 
 	}
+
+	
 
 	
 }

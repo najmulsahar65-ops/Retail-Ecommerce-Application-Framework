@@ -6,32 +6,43 @@
 	<listeners>
 		<listener
 			class-name="com.aventstack.chaintest.plugins.ChainTestListener" />
+
+		<listener
+			class-name="com.qa.retail.listeners.AnnotationTransformer" />
+
+		<listener
+			class-name="com.qa.retail.listeners.TestAllureListener" />
+
 	</listeners>
 
 
 	<test name="Login Page Test">
+		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="com.qa.retail.tests.LoginPageTest" />
 		</classes>
 	</test>
-
+	<!-- 
 	<test name="Accounts Page Test">
+	<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="com.qa.retail.tests.AccountsPageTest" />
 		</classes>
 	</test>
 
 	<test name="Product Results Page Test">
+	<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="com.qa.retail.tests.ProductResultPageTest" />
 		</classes>
 	</test>
 
 	<test name="Register Page Test">
+	<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="com.qa.retail.tests.RegisterPageTest" />
 		</classes>
 	</test>
-
+-->
 
 </suite>

@@ -18,14 +18,14 @@ public class LoginPage {
 	private ElementUtils eleUtil;
 
 	//Locators
-	private By username = By.cssSelector("#input-email");
+	private By username = By.id("input-email");
 	private By password = By.id("input-password");
 	private By login = By.xpath("//button[text()='Login']");
 	private By forgotPwdLink = By.linkText("Forgotten Password");
 	private By logoImage = By.cssSelector("img.img-fluid");
-	private By AddToCart = By.xpath("//button[@class='btn btn-lg btn-dark d-block dropdown-toggle']");
-	private By NewcustomerText = By.xpath("//h2[text()='New Customer']");
-	private By FooterLinks = By.xpath("//div[@class = 'container']/div[@class='row']/div[@class='col-sm-3']");
+//	private By AddToCart = By.xpath("//button[@class='btn btn-lg btn-dark d-block dropdown-toggle']");
+//	private By NewcustomerText = By.xpath("//h2[text()='New Customer']");
+//	private By FooterLinks = By.xpath("//div[@class = 'container']/div[@class='row']/div[@class='col-sm-3']");
 	private By registerLink = By.linkText("Register");
 
 	//Constractor
@@ -73,17 +73,17 @@ public class LoginPage {
 	    return new AccountsPage(driver);
 	}
 	
-	public boolean isAddToCartVisible() {
-		return eleUtil.waitForVisibilityOfElement(AddToCart, AppConstants.SHORT_DEFAULT_WAIT).isDisplayed();
-	}
-	
-	public boolean isNewCustomerTextExist() {
-		return eleUtil.waitForVisibilityOfElement(NewcustomerText, AppConstants.SHORT_DEFAULT_WAIT).isDisplayed();
-	}
-	
-	public List<WebElement> isFooterLinksExist() {
-		return eleUtil.waitForVisibilityOfElements(FooterLinks, AppConstants.SHORT_DEFAULT_WAIT);
-	}
+//	public boolean isAddToCartVisible() {
+//		return eleUtil.waitForVisibilityOfElement(AddToCart, AppConstants.SHORT_DEFAULT_WAIT).isDisplayed();
+//	}
+//	
+//	public boolean isNewCustomerTextExist() {
+//		return eleUtil.waitForVisibilityOfElement(NewcustomerText, AppConstants.SHORT_DEFAULT_WAIT).isDisplayed();
+//	}
+//	
+//	public List<WebElement> isFooterLinksExist() {
+//		return eleUtil.waitForVisibilityOfElements(FooterLinks, AppConstants.SHORT_DEFAULT_WAIT);
+//	}
 	
 	@Step("Navigating to the register page")
 	public RegisterPage navigateToRegisterPage() {

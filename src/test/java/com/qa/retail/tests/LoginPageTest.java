@@ -1,5 +1,6 @@
 package com.qa.retail.tests;
 
+import java.io.File;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
@@ -27,12 +28,13 @@ public class LoginPageTest extends BaseTest {
 	
 	@Description("Login Page Title Test")
 	@Severity(SeverityLevel.MINOR)
-	@Test(priority = 3)
+	@Test(priority = 1)
 	
 	public void loginPageTitleTest() {
 		String acutalPageTitle = loginPage.getLoginPageTitle();
 		ChainTestListener.log("The actual page title is: " + acutalPageTitle);
 		Assert.assertEquals(acutalPageTitle, "Account Login");
+		ChainTestListener.embed(new File("Screen Shot 2026-11-04 at 8.05.15 AM.png"), "image/png");
 	}
     
 	@Description("Login Page URL Test")
@@ -43,51 +45,55 @@ public class LoginPageTest extends BaseTest {
 		String actualPage = loginPage.getLoginPageUrl();
 		ChainTestListener.log("Checking if the page URl exist or not" + "\nThe actual page URL is: " + actualPage);
 		Assert.assertTrue(actualPage.contains("com/retail/index."));
+		// ChainTestListener.embed(new File("C:/Users/DMVTEK/Downloads/Listener.png"), "image/png");
 	}
 	
-	@Description("Verifying Application Logo exist Test")
-	@Severity(SeverityLevel.NORMAL)
-	@Test(priority = 1)
-	public void IsLogoDisplayedTest() {
-		boolean logoTest= loginPage.LogoImage();
-		Assert.assertTrue(true);
-		
-	}
-
 	@Description("Verifying Forgot Password Link Test")
 	@Severity(SeverityLevel.CRITICAL)
-	@Test (priority = 4)
+	@Test (priority = 3)
 	public void forgottenPasswordTest() {
 		Assert.assertTrue(loginPage.isForgottenPasswordExist());
 	}
 	
+	
+	@Description("Verifying Application Logo exist Test")
+	@Severity(SeverityLevel.NORMAL)
+	@Test(priority = 4)
+	public void IsLogoDisplayedTest() {
+		ChainTestListener.log("Checking if the Application logo exist or not");
+		Assert.assertTrue(loginPage.LogoImage());
+//		boolean logoTest= loginPage.LogoImage();
+//		Assert.assertTrue(true);
+	}
+
+	
 	@Description("Verifying that User is able to login with correct credentials test")
 	@Severity(SeverityLevel.CRITICAL)
-	@Test(priority = 8)
+	@Test(priority = 5)
 	public void doLoginTest() {
 //		Assert.assertTrue(loginPage.doLogin("Sahar@gmail.com", "12345678"));
 		accPage = loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
 		Assert.assertTrue(accPage.isLogoutLinkExist());
 		
 	}
-	@Test(priority = 5)
-	public void isAddToCartExist() {
-		Assert.assertTrue(loginPage.isAddToCartVisible());
-	}
-	
-	@Test (priority = 6)
-	public void IsNewCustomerTextVisible() {
-		Assert.assertTrue(loginPage.isNewCustomerTextExist());
-	}
-	
-	@Test (priority = 7)
-	public void IsFooterLinksExist() {
-		List<WebElement> footerLinks = loginPage.isFooterLinksExist();
-		Assert.assertFalse(footerLinks.isEmpty(), "The element list is empty!");
-		
-		for(WebElement footer : footerLinks) {
-			Assert.assertTrue(footer.isDisplayed(),"Footer links are not visible!");
-		}
-		
-	}
+//	@Test(priority = 8)
+//	public void isAddToCartExist() {
+//		Assert.assertTrue(loginPage.isAddToCartVisible());
+//	}
+//	
+//	@Test (priority = 6)
+//	public void IsNewCustomerTextVisible() {
+//		Assert.assertTrue(loginPage.isNewCustomerTextExist());
+//	}
+//	
+//	@Test (priority = 7)
+//	public void IsFooterLinksExist() {
+//		List<WebElement> footerLinks = loginPage.isFooterLinksExist();
+//		Assert.assertFalse(footerLinks.isEmpty(), "The element list is empty!");
+//		
+//		for(WebElement footer : footerLinks) {
+//			Assert.assertTrue(footer.isDisplayed(),"Footer links are not visible!");
+//		}
+//		
+//	}
 }

@@ -9,6 +9,8 @@ import org.testng.ITestResult;
 
 import com.qa.retail.factory.DriverFactory;
 
+import io.qameta.allure.Attachment;
+
 public class TestAllureListener implements ITestListener {
 	
 	private static String getTestMethodName(ITestResult iTestResult) {

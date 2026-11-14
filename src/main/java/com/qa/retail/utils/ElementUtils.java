@@ -21,8 +21,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.qa.retail.constants.AppConstants;
 import com.qa.retail.exceptions.FrameworkException;
 
+import io.qameta.allure.Step;
+
 public class ElementUtils {
-	
+
 	private WebDriver driver;
 
 	public ElementUtils(WebDriver driver) {
@@ -32,7 +34,7 @@ public class ElementUtils {
 	public WebElement getElement(By locator) {
 		return driver.findElement(locator);
 	}
-
+    @Step ("Entering the value: {1} to the element: {0}")
 	public void doSendKeys(By locator, String value) {
 		getElement(locator).sendKeys(value);
 	}
@@ -75,7 +77,8 @@ public class ElementUtils {
 		}
 		return by;
 	}
-
+    
+	@Step ("Clicking on the element: {0}")
 	public void doClick(By locators) {
 		getElement(locators).click();
 	}
@@ -345,6 +348,7 @@ public class ElementUtils {
 	 * @param timeOut
 	 * @return
 	 */
+	@Step("Waiting for the element: {0} with timeout {1}")
 	public WebElement waitForVisibilityOfElement(By locator, int timeOut) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
@@ -364,7 +368,7 @@ public class ElementUtils {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
 		return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
 	}
-
+    @Step("Entering the value: {1} to elemenet {0} with timeout {2}")
 	public void doSendKeysWithWait(By locator, String valueToSend, int timeOut) {
 		waitForVisibilityOfElement(locator, timeOut).sendKeys(valueToSend);
 	}
@@ -381,6 +385,7 @@ public class ElementUtils {
 		return titlePartialValue;
 	}
 
+	@Step("Waiting for the page title: {0} with timeout {1}")
 	public String waitForTitleCompleteValue(String titleCompleteValue, int timeOut) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
 		try {
@@ -393,6 +398,7 @@ public class ElementUtils {
 		return null;
 	}
 
+	@Step("Waiting for the page URL: {0} with timeout {1}")
 	public String waitForURLContains(String urlPartialValue, int timeOut) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
 		try {
@@ -501,9 +507,9 @@ public class ElementUtils {
 	public void setPageLoadTimeout(int timeOut) {
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(timeOut));
 	}
-	
+
 	public String getColorName(String hex) {
-		switch(hex.toLowerCase().trim()) {
+		switch (hex.toLowerCase().trim()) {
 		case "#ffffff":
 			return "White";
 		case "#000000":
@@ -520,14 +526,11 @@ public class ElementUtils {
 			return "unknown color";
 		}
 	}
-	
+
 	public void clickElementByJS(By locator) {
-	    WebElement element = waitForVisibilityOfElement(locator, AppConstants.MEDIUM_DEFAULT_WAIT);
-	    JavascriptExecutor js = (JavascriptExecutor) driver;
-	    js.executeScript("arguments[0].click();", element);
+		WebElement element = waitForVisibilityOfElement(locator, AppConstants.MEDIUM_DEFAULT_WAIT);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", element);
 	}
 
 }
-
-
-

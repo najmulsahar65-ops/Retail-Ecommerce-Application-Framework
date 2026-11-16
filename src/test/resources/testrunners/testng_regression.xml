@@ -10,8 +10,8 @@
 		<listener
 			class-name="com.qa.retail.listeners.AnnotationTransformer" />
 
-		<listener
-			class-name="com.qa.retail.listeners.TestAllureListener" />
+<!--		<listener-->
+<!--			class-name="com.qa.retail.listeners.TestAllureListener" />-->
 
 	</listeners>
 

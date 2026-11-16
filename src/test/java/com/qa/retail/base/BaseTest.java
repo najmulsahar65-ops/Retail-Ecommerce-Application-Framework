@@ -10,6 +10,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 
@@ -42,7 +43,7 @@ public class BaseTest {
 	
 	
 	@BeforeTest
-	public void setup(String browserName) {
+	public void setup(@Optional("chrome") String browserName) {
          
 		// ChainTest Custom System Information
 		ChainPluginService.getInstance().addSystemInfo("Build: ", "1.0");

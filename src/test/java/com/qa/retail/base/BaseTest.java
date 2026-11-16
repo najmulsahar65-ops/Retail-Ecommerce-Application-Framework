@@ -47,6 +47,10 @@ public class BaseTest {
          
 		// ChainTest Custom System Information
 		ChainPluginService.getInstance().addSystemInfo("Build: ", "1.0");
+		if (ChainPluginService.getInstance() != null) {
+		    ChainPluginService.getInstance().addSystemInfo("OS", "Mac OS X");
+		    ChainPluginService.getInstance().addSystemInfo("Browser", browserName);
+		}
         ChainPluginService.getInstance().addSystemInfo("Owner Name: ", "Sahar");
         ChainPluginService.getInstance().addSystemInfo("Senior Tester: ", "Ahmad");
         ChainPluginService.getInstance().addSystemInfo("Manager: " , "Muzhda");

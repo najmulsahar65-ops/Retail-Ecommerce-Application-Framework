@@ -40,21 +40,21 @@ public class BaseTest {
     
 	
 	@Parameters({"browser"})
-	
-	
 	@BeforeTest
 	public void setup(@Optional("chrome") String browserName) {
-         
-		// ChainTest Custom System Information
-		ChainPluginService.getInstance().addSystemInfo("Build: ", "1.0");
-		if (ChainPluginService.getInstance() != null) {
-		    ChainPluginService.getInstance().addSystemInfo("OS", "Mac OS X");
-		    ChainPluginService.getInstance().addSystemInfo("Browser", browserName);
-		}
-        ChainPluginService.getInstance().addSystemInfo("Owner Name: ", "Sahar");
-        ChainPluginService.getInstance().addSystemInfo("Senior Tester: ", "Ahmad");
-        ChainPluginService.getInstance().addSystemInfo("Manager: " , "Muzhda");
-        ChainPluginService.getInstance().addSystemInfo("Team lead: ", "Ali");
+	     
+	    // ChainTest Custom System Information
+	    if (ChainPluginService.getInstance() != null) {
+	        ChainPluginService.getInstance().addSystemInfo("Build: ", "1.0");
+	        ChainPluginService.getInstance().addSystemInfo("OS", "Mac OS X");
+	        ChainPluginService.getInstance().addSystemInfo("Browser", browserName);
+	        ChainPluginService.getInstance().addSystemInfo("Owner Name: ", "Sahar");
+	        ChainPluginService.getInstance().addSystemInfo("Senior Tester: ", "Ahmad");
+	        ChainPluginService.getInstance().addSystemInfo("Manager: ", "Muzhda");
+	        ChainPluginService.getInstance().addSystemInfo("Team lead: ", "Ali");
+	    }
+	    
+	    
         
         
 		df = new DriverFactory();
